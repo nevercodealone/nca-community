@@ -5,3 +5,6 @@ fos_user:
     from_email:
         address: "%env(MAILER_SENDER)%"
         sender_name: "%env(MAILER_USER)%"
+    profile:
+        form:
+            type: App\Form\EditType

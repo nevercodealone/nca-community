@@ -2,18 +2,29 @@
 
 namespace App\Service;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Simplon\Twitter\Twitter;
 
 class twitterService
 {
+    private $cache;
+    private $twitterEntity;
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
     public $twitter;
     public $stopRequests = false;
     public $maxId = null;
     public $statuses;
     public $requestCount = 0;
 
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
+//        $this->cache = $cache;
+        $this->entityManager = $entityManager;
+        $this->twitterEntity = new \App\Entity\Twitter();
         $this->twitter = new Twitter($_SERVER['API_KEY'], $_SERVER['API_SECRET']);
         $this->authorize();
     }
@@ -24,11 +35,25 @@ class twitterService
     }
 
     public function crawlerCommand() {
+        $entityManager = $this->entityManager;
+
+        $tweets = $this->getActualTweetsFromUsers();
+
+
+        foreach ($tweets as $tweet) {
+            $tweeterEntity = $this->twitterEntity;
+            $tweeterEntity->setJson($tweet);
+            $entityManager->persist($tweeterEntity);
+        }
+
+        $entityManager->flush();
+
         return count($this->getActualTweetsFromUsers());
     }
 
     protected function getActualTweetsFromUsers(): array
     {
+        $statuses = [];
         $users = ['nevercodealone'];
 
         foreach ($users as $user) {
@@ -48,16 +73,10 @@ class twitterService
             $rawStatuses = $this->twitter->get('statuses/user_timeline', $getConfig);
 
             foreach($rawStatuses as $rawStatus) {
-                $this->maxId = $rawStatus['id'];
-                $this->statuses[] = array(
-                    'id' => $rawStatus['id'],
-                    'text' => $rawStatus['text'],
-                    'date' => $rawStatus['created_at']
-                );
+                $statuses[] = serialize($rawStatus);
             }
         }
 
-
-        return $this->statuses;
+        return $statuses;
     }
 }

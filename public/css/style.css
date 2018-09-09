@@ -1,0 +1,19 @@
+.highlight-green .header-light .header-logo {
+    background-image: url(../nca/nca-logo.png);
+}
+
+.header .header-logo, .footer .footer-logo {
+    background-size: 115px 40px;
+}
+
+.highlight-green .bg-highlight.button {
+    border-color: #5bbd12;
+}
+
+.highlight-green .bg-highlight {
+    background-color: #5bbd12!important;
+}
+
+.color-green-dark {
+    color: #5bbd12;
+}

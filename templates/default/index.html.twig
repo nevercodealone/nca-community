@@ -34,10 +34,10 @@
     <div id="menu-1" class="menu-sidebar menu-dark menu-sidebar-left menu-sidebar-reveal">
         <div class="menu-scroll">
             <div class="sidebar-icons">
-                <a href="https://www.facebook.com/nevercodealone"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/nevercodealone"><i class="font-10 fa-fw fab fa-twitter"></i></a>
-                <a href="tel:+004917624747727"><i class="font-10 fa-fw fa fa-phone"></i></a>
-                <a href="mailto:rolandgolla@gmail.com"><i class="font-11 fa-fw far fa-envelope"></i></a>
+                <a href="{{ facebook }}"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
+                <a href="{{ twitter }}"><i class="font-10 fa-fw fab fa-twitter"></i></a>
+                <a href="tel:+{{ phone }}"><i class="font-10 fa-fw fa fa-phone"></i></a>
+                <a href="mailto:{{ email }}"><i class="font-11 fa-fw far fa-envelope"></i></a>
                 <a href="#" class="close-menu"><i class="font-10 fa-fw fa fa-times"></i></a>
             </div>
             <div class="sidebar-logo">
@@ -48,19 +48,19 @@
             <div class="sidebar-separator">Navigation</div>
 
             <div class="menu-items menu-icons">
-                <a href="index.html" class="menu-item-active"><i class="fa fa-star"></i>Welcome</a>
-                <a href="homepages.html"><i class="fa fa-home"></i>Homepage</a>
-                <a href="components.html"><i class="fas fa-cog"></i>Blog<span>Web Development</span></a>
+                <a href="{{ nevercodealone }}" class="menu-item-active"><i class="fa fa-star"></i>NCA Webseite</a>
+                <a href="/"><i class="fa fa-home"></i>Start</a>
+                <a href="{{ blog }}"><i class="fas fa-cog"></i>Blog<span>Web Development</span></a>
             </div>
             <div class="sidebar-divider"></div>
-            <div class="sidebar-separator">Get in Touch</div>
+            <div class="sidebar-separator">Kontakt</div>
             <div class="menu-items menu-icons">
-                <a href="tel:+004917624747727"><em><i class="fa fa-phone"></i>Anruf</em></a>
-                <a href="sms:+004917624747727"><em><i class="fa fa-comment"></i>Nachricht</em></a>
-                <a href="mailto:yourname@domain.com"><em><i class="fa fa-envelope"></i>E-Mail</em></a>
+                <a href="tel:+{{ phone }}"><em><i class="fa fa-phone"></i>Anruf</em></a>
+                <a href="sms:+{{ phone }}"><em><i class="fa fa-comment"></i>SMS</em></a>
+                <a href="mailto:{{ email }}"><em><i class="fa fa-envelope"></i>E-Mail</em></a>
             </div>
             <div class="sidebar-divider"></div>
-            <p class="sidebar-copyright">Copyright <span class="copyright-year"></span> Rogoit Product</p>
+            <p class="sidebar-copyright">Inhaber <span class="copyright-year"></span> Rogoit Webdesign</p>
         </div>
     </div>
 
@@ -85,9 +85,9 @@
         </div>
 
         <div class="call-to-action">
-            <a href="tel:+1 234 567 890"><i class="fa fa-phone"></i><em>Call</em></a>
-            <a href="sms:+1 234 567 890"><i class="fa fa-comment"></i><em>Message</em></a>
-            <a href="mailto:yourname@domain.com"><i class="fa fa-envelope"></i><em>Mail</em></a>
+            <a href="tel:+{{ phone }}"><i class="fa fa-phone"></i><em>Telefon</em></a>
+            <a href="sms:+{{ phone }}"><i class="fa fa-comment"></i><em>SMS</em></a>
+            <a href="mailto:{{ email }}"><i class="fa fa-envelope"></i><em>E-Mail</em></a>
         </div>
 
         <div class="content top-30">
@@ -96,7 +96,7 @@
             <p class="bottom-30 boxed-text-large">
                 Coder Community für bessere Software-Qualität
             </p>
-            <a href="https//blog.nevercodealone.de" class="button button-s button-center-medium bg-highlight ultrabold uppercase button-round">Community Blog</a>
+            <a href="{{ blog }}" class="button button-s button-center-medium bg-highlight ultrabold uppercase button-round">Community Blog</a>
         </div>
 
         <div class="decoration decoration-margins"></div>
@@ -107,7 +107,7 @@
             <p class="color-white center-text opacity-80 top-10 bottom-30">
                 Praktische Schulung als Pair Programming - in 4 Tagen zur Build Pipeline
             </p>
-            <a href="#" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white">Jetzt buchen!</a>
+            <a href="https://blog.nevercodealone.de/continuous-integration-schulung-build-pipeline/" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white" target="_blank">Jetzt buchen!</a>
         </div>
 
         <div class="decoration decoration-margins"></div>
@@ -116,7 +116,7 @@
             <h3 class="uppercase bolder center-text">Ausgezeichnete Arbeitgeber <span class="color-highlight">#NCAEvent</span></h3>
             <p class="center-text boxed-text-large bottom-30">
                 Kostenlose Live Coding Workshops - Die Sponsoren setzen sich ein für die Community, den guten Zweck und bessere
-                <a href="#">Arbeitsbedingungen</a>.
+                <a href="https://blog.nevercodealone.de/softwarequalitaet-wird-nicht-bezahlt/" target="_blank">Arbeitsbedingungen</a>.
             </p>
             <div class="decoration bottom-10"></div>
             <div class="one-half">
@@ -166,15 +166,15 @@
             <p class="center-text color-white opacity-80 boxed-text-large bottom-30">
                 Mob Programming ist sehr gut - viele Softskills und Best Practice - man nimmt auf jeden Fall sehr viel mit
             </p>
-            <a href="" class="button button-round button-xs uppercase ultrabold button-xs button-center-large button-white">YouTube Videos</a>
+            <a href="https://www.youtube.com/watch?v=g3teRRGyACI&list=PLKrKzhBjw2Y8XpxPMbaTvc8hHLqDTcDNF" class="button button-round button-xs uppercase ultrabold button-xs button-center-large button-white" target="_blank">YouTube Videos</a>
         </div>
 
         <div class="decoration decoration-margins"></div>
 
         <div class="content">
-            <h3 class="uppercase bolder center-text">Ultra <span class="color-highlight">Happy Customers</span></h3>
+            <h3 class="uppercase bolder center-text">Viele <span class="color-highlight">Gute Web Developer</span></h3>
             <p class="center-text boxed-text-large bottom-30">
-                Our customers love our support and the quality of our products! We're always here for you.
+                Zitate von Teilnehmern auf unseren #NCAEvent Live Coding Workshops.
             </p>
 
             <div class="decoration"></div>
@@ -222,12 +222,16 @@
         <div class="decoration decoration-margins"></div>
 
         <div class="card card-red">
-            <h1 class="color-white center-text uppercase bolder top-10">Datenschutz</h1>
-            <p class="small-text center-text color-white bottom-15 opacity-50">Ich habe nichts von euren Daten und werde euch immer nur informieren.<br>Zum Datenschutz</p>
-            <p class="center-text color-white opacity-80 boxed-text-large bottom-30">
-                Wir setzen uns ein fUur besser Arbeitsbedingungen und die IT in Deutschland
+            <h1 class="color-white center-text uppercase bolder top-10">Besonderer Datenschutz</h1>
+            <p class="small-text center-text color-white bottom-15 opacity-50">
+                Wir habe nichts von euren Daten und werde euch immer nur informieren.
+                <br>
+                <a href="https://blog.nevercodealone.de/nca-datenschutz/" target="_blank">Zum Datenschutz</a>
             </p>
-            <a href="#" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white">Was ist NCA?</a>
+            <p class="center-text color-white opacity-80 boxed-text-large bottom-30">
+                Wir setzen uns ein für besser Arbeitsbedingungen und die IT in Deutschland
+            </p>
+            <a href="https://blog.nevercodealone.de/never-code-alone-idee/" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white" target="_blank">Was ist NCA?</a>
         </div>
 
         <div class="decoration decoration-margins"></div>
@@ -236,30 +240,29 @@
 
         <div class="footer footer-dark">
             <a href="#" class="footer-logo"></a>
-            <strong>Automate <i class="fas fa-heart color-red-light"></i> all the things</strong>
+            <strong>Automate <i class="fas fa-heart color-green-light"></i> all the things</strong>
             <p class="footer-text">
                 <a href="https://rolandgolla.de">PHP-Training</a> an deinem aktuellen Projekt.
             </p>
             <div class="footer-socials">
-                <a href="#"><i class="facebook-bg fab fa-facebook-f"></i></a>
-                <a href="#"><i class="twitter-bg fab fa-twitter"></i></a>
-                <a href="#"><i class="google-bg fab fa-google-plus-g"></i></a>
-                <a href="#" data-menu="menu-share"><i class="instagram-bg fas fa-share-alt"></i></a>
+                <a href="{{ twitter }}" target="_blank"><i class="twitter-bg fab fa-twitter"></i></a>
+                <a href="{{ facebook }}" target="_blank"><i class="facebook-bg fab fa-facebook-f"></i></a>
+                <a href="{{ youtube }}" target="_blank"><i class="google-bg fab fa-youtube-square"></i></a>
+                <a href="{{ instagram }}" target="_blank"><i class="instagram-bg fas fa-instagram"></i></a>
                 <a href="#" class="back-to-top"><i class="bg-green-dark fas fa-angle-up"></i></a>
             </div>
-            <p class="footer-copyright">&copy; Enabled <span class="copyright-year"></span>. All rights reserved.</p>
+            <p class="footer-copyright">&copy; Rogoit <span class="copyright-year"></span>. <a href="https://nevercodealone.de/impressum/" target="_blank">Impressum</a>.</p>
         </div>
     </div>
 
     <div id="menu-share" class="menu-flyin menu-share">
         <div class="menu-flyin-content">
-            <h1 class="uppercase bolder center-text bottom-10">Share the love</h1>
+            <h1 class="uppercase bolder center-text bottom-10">Teile uns bitte</h1>
             <p class="center-text">
-                Share our page with the world, increase <br>your page exposure with the world.
+                Social Media Reichweite ist für uns sehr wichtig <br>hilf uns bitte Reichweite aufzubauen.
             </p>
             <div class="menu-share-socials">
                 <a href="#" class="shareToFacebook"><i class="facebook-color fab fa-facebook-square"></i><em>Facebook</em></a>
-                <a href="#" class="shareToGooglePlus"><i class="google-color fab fa-google-plus-square"></i><em>Google +</em></a>
                 <a href="#" class="shareToTwitter"><i class="twitter-color fab fa-twitter-square"></i><em>Twitter</em></a>
                 <a href="#" class="shareToPinterest"><i class="pinterest-color fab fa-pinterest-square"></i><em>Pinterest</em></a>
                 <a href="#" class="shareToWhatsApp" data-action="share/whatsapp/share"><i class="whatsapp-color fab fa-whatsapp-square"></i><em>WhatsApp</em></a>
@@ -271,10 +274,10 @@
     <div id="menu-2" class="menu-sidebar menu-dark menu-sidebar-right menu-sidebar-reveal">
         <div class="menu-scroll">
             <div class="sidebar-icons">
-                <a href="{{ facebook }}"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/iEnabled"><i class="font-10 fa-fw fab fa-twitter"></i></a>
-                <a href="tel:+1 234 567 890"><i class="font-10 fa-fw fa fa-phone"></i></a>
-                <a href="mailto:yourname@domain.com"><i class="font-11 fa-fw far fa-envelope"></i></a>
+                <a href="{{ facebook }}" target="_blank"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
+                <a href="{{ twitter }}" target="_blank"><i class="font-10 fa-fw fab fa-twitter"></i></a>
+                <a href="tel:+{{ phone }}"><i class="font-10 fa-fw fa fa-phone"></i></a>
+                <a href="mailto:{{ email }}"><i class="font-11 fa-fw far fa-envelope"></i></a>
                 <a href="#" class="close-menu"><i class="font-10 fa-fw fa fa-times"></i></a>
             </div>
             <div class="sidebar-logo">

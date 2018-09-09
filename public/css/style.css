@@ -1,9 +1,13 @@
-.highlight-green .header-light .header-logo {
+.highlight-green .header-light .header-logo, .highlight-green .footer-dark .footer-logo {
     background-image: url(../nca/nca-logo.png);
 }
 
 .header .header-logo, .footer .footer-logo {
     background-size: 115px 40px;
+}
+
+.footer .footer-logo {
+    min-height: 40px;
 }
 
 .highlight-green .bg-highlight.button {

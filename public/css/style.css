@@ -18,6 +18,14 @@
     background-color: #5bbd12!important;
 }
 
-.color-green-dark {
+.color-green-dark, a {
     color: #5bbd12;
+}
+
+.page-content {
+    padding-top: 110px;
+}
+
+.card-green {
+    background-image: linear-gradient(to bottom, #5bbd12 0%, #5bbd12 100%);
 }

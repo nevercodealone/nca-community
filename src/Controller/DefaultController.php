@@ -12,7 +12,7 @@ class DefaultController extends Controller
      */
     public function index()
     {
-        $facebook = 'https//facebook.com/nevercodealone';
+        $facebook = 'https://facebook.com/nevercodealone';
         $logo = '/nca/logo.png';
         return $this->render('default/index.html.twig', [
             'logo' => $logo,

@@ -1,0 +1,15 @@
+class_name: AcceptanceTester
+modules:
+  enabled:
+  - WebDriver
+  config:
+    WebDriver:
+      url: 'http://127.0.0.1:8000'
+      browser: chrome
+      window_size: 1600x1000
+env:
+  firefox:
+    modules:
+      config:
+        WebDriver:
+          browser: 'firefox'

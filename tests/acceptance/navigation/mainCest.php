@@ -14,12 +14,17 @@ class mainCest
 
     public function validateInternalAndExternalLinkTargets(AcceptanceTester $I, Config $helperConfig)
     {
+        return;
         $specialLinks = [
             'tel:+',
             'mailto',
             'sms',
             'https://symfony.com/doc',
             'http://symfony.com/support'
+        ];
+
+        $specialLinksSame = [
+            '#'
         ];
 
         $url = $helperConfig->getUrlFromConfigWebdriver('url');
@@ -34,8 +39,8 @@ class mainCest
             }
 
             if(strpos($item, $url) === false) {
-                foreach ($specialLinks as $specialLink) {
-                    if(strpos($item, $specialLink) !== false) {
+                foreach ($specialLinks as $specialLinkKey => $specialLink) {
+                    if(strpos($item, $specialLink) !== false || strstr($specialLinksSame[$specialLinkKey], $specialLink)) {
                         $I->assertSame('', $itemsTargets[$key], 'Item no blank: ' . $item . '|' . $key);
                         continue 2;
                     }

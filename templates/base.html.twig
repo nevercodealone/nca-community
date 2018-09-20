@@ -1,3 +1,13 @@
+{% set logo = '/nca/logo.png' %}
+{% set facebook = 'https://facebook.com/nevercodealone' %}
+{% set twitter = 'https://twitter.com/nevercodealone' %}
+{% set youtube = 'https://www.youtube.com/channel/UCjVT6iJ_wg7OM0DkV5TpNCQ' %}
+{% set instagram = 'https://www.instagram.com/nevercodealone/' %}
+{% set phone = '004917624747727' %}
+{% set email = 'nevercodealone@gmail.com' %}
+{% set nevercodealone = 'https://nevercodealone.de' %}
+{% set blog = 'https://blog.nevercodealone.de' %}
+
 <!DOCTYPE html>
 <html lang="de">
 <html>
@@ -17,8 +27,268 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">NCA <span class="color-green-dark">Community</span></h1>
+        <div id="preload-spinner"></div>
+        <p>#NCACommunity - Initiative zur <a href="https://entwickler.de/online/development/deutschland-webentwicklungs-entwicklungsland-252913.html" target="_blank" rel="noopener">>Steigerung der Software-Qualität in Deutschland.</a</p>
+        <em>Never Code Alone</em>
+    </div>
 
+
+    <div id="page-transitions" class="page-build highlight-green">
+        {% block header %}
+        <div class="header header-light header-logo-center">
+            <a href="/" class="header-logo"></a>
+            <a data-menu="menu-1" href="#" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
+            <a data-menu="menu-2" href="#" class="header-icon header-icon-4"><i class="fas fa-envelope"></i></a>
+        </div>
+        {% endblock %}
+
+        <div id="menu-1" class="menu-sidebar menu-dark menu-sidebar-left menu-sidebar-reveal">
+            <div class="menu-scroll">
+                <div class="sidebar-icons">
+                    <a href="{{ facebook }}" target="_blank" rel="noopener"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
+                    <a href="{{ twitter }}" target="_blank" rel="noopener"><i class="font-10 fa-fw fab fa-twitter"></i></a>
+                    <a href="tel:+{{ phone }}"><i class="font-10 fa-fw fa fa-phone"></i></a>
+                    <a href="mailto:{{ email }}"><i class="font-11 fa-fw far fa-envelope"></i></a>
+                    <a href="#" class="close-menu"><i class="font-10 fa-fw fa fa-times"></i></a>
+                </div>
+                <div class="sidebar-logo">
+                    <a href="#"></a>
+                    <em>Never Code Alone</em>
+                </div>
+                <div class="sidebar-divider"></div>
+                <div class="sidebar-separator">Navigation</div>
+
+                <div class="menu-items menu-icons">
+                    <a href="{{ nevercodealone }}" class="menu-item-active" target="_blank" rel="noopener"><i class="fa fa-star"></i>NCA Webseite</a>
+                    <a href="/"><i class="fa fa-home"></i>Start</a>
+                    <a href="{{ blog }}" target="_blank" rel="noopener"><i class="fas fa-cog"></i>Blog<span>Web Development</span></a>
+                </div>
+                <div class="sidebar-divider"></div>
+                <div class="sidebar-separator">Kontakt</div>
+                <div class="menu-items menu-icons">
+                    <a href="tel:+{{ phone }}"><em><i class="fa fa-phone"></i>Anruf</em></a>
+                    <a href="sms:+{{ phone }}"><em><i class="fa fa-comment"></i>SMS</em></a>
+                    <a href="mailto:{{ email }}"><em><i class="fa fa-envelope"></i>E-Mail</em></a>
+                </div>
+                <div class="sidebar-divider"></div>
+                <p class="sidebar-copyright">Inhaber <span class="copyright-year"></span> Rogoit Webdesign</p>
+            </div>
+        </div>
+
+        <div class="page-content header-clear">
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <div class="call-to-action">
+                <a href="tel:+{{ phone }}"><i class="fa fa-phone"></i><em>Telefon</em></a>
+                <a href="sms:+{{ phone }}"><i class="fa fa-comment"></i><em>SMS</em></a>
+                <a href="mailto:{{ email }}"><i class="fa fa-envelope"></i><em>E-Mail</em></a>
+            </div>
+
+            <div class="decoration decoration-margins"></div>
+
+            <div class="card card-green">
+                <h1 class="color-white uppercase bolder center-text top-10">PHP Training</h1>
+                <p class="small-text center-text color-white bottom-15 opacity-50">Automatisierte Tests und Deployments</p>
+                <p class="color-white center-text opacity-80 top-10 bottom-30">
+                    Praktische Schulung als Pair Programming - in 4 Tagen zur Build Pipeline
+                </p>
+                <a href="https://blog.nevercodealone.de/continuous-integration-schulung-build-pipeline/" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white" target="_blank" rel="noopener">Jetzt buchen!</a>
+            </div>
+
+            <div class="decoration decoration-margins"></div>
+
+            <div class="page-content header-clear-larger">
+
+                <div class="decoration decoration-margins"></div>
+
+                <div class="card card-green">
+                    <h1 class="color-white center-text uppercase bolder top-10">Soziale Open Source Projekte</h1>
+                    <p class="small-text center-text color-white bottom-15 opacity-50">Wir können auf jeden Fall die Welt verbessern und Tests schreiben :)</p>
+                    <p class="center-text color-white opacity-80 boxed-text-large bottom-30">
+                        Mob Programming ist sehr gut - viele Softskills und Best Practice - man nimmt auf jeden Fall sehr viel mit
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=g3teRRGyACI&list=PLKrKzhBjw2Y8XpxPMbaTvc8hHLqDTcDNF" class="button button-round button-xs uppercase ultrabold button-xs button-center-large button-white" target="_blank" rel="noopener">YouTube Videos</a>
+                </div>
+
+                <div class="decoration decoration-margins"></div>
+
+                <div class="content">
+                    <h3 class="uppercase bolder center-text">Viele <span class="color-highlight">Gute Web Developer</span></h3>
+                    <p class="center-text boxed-text-large bottom-30">
+                        Zitate von Teilnehmern auf unseren #NCAEvent Live Coding Workshops.
+                    </p>
+
+                    <div class="decoration"></div>
+
+                    <div class="single-slider owl-carousel owl-no-dots">
+                        <div class="blockquote-3">
+                            <div class="blockquote-rating">
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                            </div>
+                            <div class="clear"></div>
+                            <p>The best support I have ever had on the platform , its so good i purchased another theme knowing I will get help with it. Highly recommended!</p>
+                            <a href="#" class="button-dummy center-text">MichaelPink | Envato Buyer</a>
+                        </div>
+                        <div class="blockquote-3">
+                            <div class="blockquote-rating">
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                            </div>
+                            <div class="clear"></div>
+                            <p>Surely the best mobile template you can ever get your hands on! Thanks Enabled for designing this wonderful template, we will be using these.</p>
+                            <a href="#" class="button-dummy center-text">eSpeed | Envato Buyer</a>
+                        </div>
+                        <div class="blockquote-3">
+                            <div class="blockquote-rating">
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                                <i class="fa fa-star color-yellow-dark"></i>
+                            </div>
+                            <div class="clear"></div>
+                            <p>You can't go wrong with this template. Author has outstanding code quality and amazing support to boot. Will never leave you hanging. Get this now!</p>
+                            <a href="#" class="button-dummy center-text">Profuzion | Envato Buyer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decoration decoration-margins"></div>
+
+                <div class="card card-red">
+                    <h1 class="color-white center-text uppercase bolder top-10">Besonderer Datenschutz</h1>
+                    <p class="small-text center-text color-white bottom-15 opacity-50">
+                        Wir habe nichts von euren Daten und werde euch immer nur informieren.
+                        <br>
+                        <a href="https://blog.nevercodealone.de/nca-datenschutz/" target="_blank" rel="noopener">Zum Datenschutz</a>
+                    </p>
+                    <p class="center-text color-white opacity-80 boxed-text-large bottom-30">
+                        Wir setzen uns ein für besser Arbeitsbedingungen und die IT in Deutschland
+                    </p>
+                    <a href="https://blog.nevercodealone.de/never-code-alone-idee/" class="button button-round button-xs uppercase ultrabold button-xs button-center button-white" target="_blank" rel="noopener">Was ist NCA?</a>
+                </div>
+
+                <div class="decoration decoration-margins"></div>
+
+                <div class="decoration decoration-margins"></div>
+
+                <div class="footer footer-dark">
+                    <a href="#" class="footer-logo"></a>
+                    <strong>Automate <i class="fas fa-heart color-green-light"></i> all the things</strong>
+                    <p class="footer-text">
+                        <a href="https://rolandgolla.de" target="_blank" rel="noopener">PHP-Training</a> an deinem aktuellen Projekt.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="{{ twitter }}" target="_blank" rel="noopener"><i class="twitter-bg fab fa-twitter"></i></a>
+                        <a href="{{ facebook }}" target="_blank" rel="noopener"><i class="facebook-bg fab fa-facebook-f"></i></a>
+                        <a href="{{ youtube }}" target="_blank" rel="noopener"><i class="google-bg fab fa-youtube-square"></i></a>
+                        <a href="{{ instagram }}" target="_blank" rel="noopener"><i class="instagram-bg fas fa-instagram"></i></a>
+                        <a href="#" class="back-to-top"><i class="bg-green-dark fas fa-angle-up"></i></a>
+                    </div>
+                    <p class="footer-copyright">&copy; Rogoit <span class="copyright-year"></span>. <a href="https://nevercodealone.de/impressum/" target="_blank" rel="noopener">Impressum</a>.</p>
+                </div>
+            </div>
+
+            <div id="menu-share" class="menu-flyin menu-share">
+                <div class="menu-flyin-content">
+                    <h1 class="uppercase bolder center-text bottom-10">Teile uns bitte</h1>
+                    <p class="center-text">
+                        Social Media Reichweite ist für uns sehr wichtig <br>hilf uns bitte Reichweite aufzubauen.
+                    </p>
+                    <div class="menu-share-socials">
+                        <a href="#" class="shareToFacebook"><i class="facebook-color fab fa-facebook-square"></i><em>Facebook</em></a>
+                        <a href="#" class="shareToTwitter"><i class="twitter-color fab fa-twitter-square"></i><em>Twitter</em></a>
+                        <a href="#" class="shareToPinterest"><i class="pinterest-color fab fa-pinterest-square"></i><em>Pinterest</em></a>
+                        <a href="#" class="shareToWhatsApp" data-action="share/whatsapp/share"><i class="whatsapp-color fab fa-whatsapp-square"></i><em>WhatsApp</em></a>
+                        <a href="#" class="shareToMail"><i class="mail-color fa fa-envelope-square"></i><em>Email</em></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="menu-2" class="menu-sidebar menu-dark menu-sidebar-right menu-sidebar-reveal">
+                <div class="menu-scroll">
+                    <div class="sidebar-icons">
+                        <a href="{{ facebook }}" target="_blank" rel="noopener"><i class="font-10 fa-fw fab fa-facebook-f"></i></a>
+                        <a href="{{ twitter }}" target="_blank" rel="noopener"><i class="font-10 fa-fw fab fa-twitter"></i></a>
+                        <a href="tel:+{{ phone }}"><i class="font-10 fa-fw fa fa-phone"></i></a>
+                        <a href="mailto:{{ email }}"><i class="font-11 fa-fw far fa-envelope"></i></a>
+                        <a href="#" class="close-menu"><i class="font-10 fa-fw fa fa-times"></i></a>
+                    </div>
+                    <div class="sidebar-logo">
+                        <a href="#"></a>
+                        <em>Powerful Mobile Solutions</em>
+                    </div>
+                    <div class="sidebar-divider"></div>
+                    <div class="sidebar-separator">Let's Get Social</div>
+                    <div class="menu-items menu-icons">
+                        <a href="https://www.facebook.com/enabled.labs/?ref=bookmarks" target="_blank" rel="noopener"><em><i class="fab fa-facebook-f"></i>Facebook</em></a>
+                        <a href="https://twitter.com/iEnabled" target="_blank" rel="noopener"><em><i class="fab fa-twitter"></i>Twitter</em></a>
+                        <a href="https://plus.google.com/u/1/105775801838187143320" target="_blank" rel="noopener"><em><i class="fab fa-google-plus-g"></i>Google +</em></a>
+                    </div>
+                    <div class="sidebar-divider"></div>
+                    <div class="sidebar-separator">SEND US A MESSAGE</div>
+                    <div class="contact-form sidebar-form">
+                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                            <h4>Message sent</h4>
+                            <p>We'll get back to you in the shorts possible time.</p>
+                        </div>
+                        <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+                            <div class="contact-text">
+                                Your message is important to us and we reply to all of them in less than 48 hours.
+                            </div>
+                            <fieldset>
+                                <div class="formValidationError" id="contactNameFieldError">
+                                    <p class="center-text uppercase small-text color-white">Name is required!</p>
+                                </div>
+                                <div class="formValidationError" id="contactEmailFieldError">
+                                    <p class="center-text uppercase small-text color-white">Mail address required!</p>
+                                </div>
+                                <div class="formValidationError" id="contactEmailFieldError2">
+                                    <p class="center-text uppercase small-text color-white">Mail address must be valid!</p>
+                                </div>
+                                <div class="formValidationError" id="contactMessageTextareaError">
+                                    <p class="center-text uppercase small-text color-white">Message field is empty!</p>
+                                </div>
+                                <div class="formFieldWrap">
+                                    <input type="text" placeholder="Name" name="contactNameField" value="" class="contactField requiredField" id="contactNameField" />
+                                </div>
+                                <div class="formFieldWrap">
+                                    <input type="text" placeholder="Email" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField" />
+                                </div>
+                                <div class="formTextareaWrap">
+                                    <textarea name="contactMessageTextarea" placeholder="Message"  class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                                </div>
+                                <div class="formSubmitButtonErrorsWrap contactFormButton">
+                                    <input type="submit" class="button button-xs bg-highlight button-rounded center-text uppercase bold contactSubmitButton top-30" id="contactSubmitButton" value="Send Message" data-formId="contactForm" />
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="sidebar-divider"></div>
+                    <div class="sidebar-separator">Get in Touch</div>
+                    <div class="menu-items menu-icons">
+                        <a href="tel:+1 234 567 890"><em><i class="fa fa-phone"></i>Call</em></a>
+                        <a href="sms:+1 234 567 890"><em><i class="fa fa-comment"></i>Message</em></a>
+                        <a href="mailto:yourname@domain.com"><em><i class="fa fa-envelope"></i>Email</em></a>
+                    </div>
+                    <div class="sidebar-divider"></div>
+                    <p class="sidebar-copyright">Copyright <span class="copyright-year"></span> Enabled. All Rights Reserved</p>
+                </div>
+            </div>
+            <a href="#" class="back-to-top-badge back-to-top-small bg-highlight"><i class="fa fa-angle-up"></i>Back to Top</a>
+        </div>
         <script type="text/javascript" src="/theme/UltraMobile/code/scripts/jquery.js"></script>
         <script type="text/javascript" src="/theme/UltraMobile/code/scripts/plugins.js"></script>
         <script type="text/javascript" src="/theme/UltraMobile/code/scripts/custom.js"></script>

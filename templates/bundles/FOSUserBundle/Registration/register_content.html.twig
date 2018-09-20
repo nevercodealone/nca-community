@@ -1,8 +1,38 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div class="page-login bottom-20">
+    <h3 class="uppercase ultrabold top-30 bottom-0">Register</h3>
+    <p class="smaller-text bottom-30">Register now. It's free!</p>
+    <div class="page-login-field top-15">
+        <i class="fa fa-user"></i>
+        {{ form_widget(form.username, { 'attr': {'placeholder': 'Benutzername' } }) }}
+        {{ form_errors(form.username) }}
+        <em>(required)</em>
     </div>
+    <div class="page-login-field">
+        <i class="fa fa-at"></i>
+        {{ form_widget(form.email, { 'attr': {'placeholder': 'Deine E-Mail' } }) }}
+        {{ form_errors(form.email) }}
+        <em>(required)</em>
+    </div>
+    <div class="page-login-field">
+        <i class="fa fa-lock"></i>
+        {{ form_widget(form.plainPassword.first, { 'attr': {'placeholder': 'Passwort'} }) }}
+        {{ form_errors(form.plainPassword.first) }}
+        <em>(required)</em>
+    </div>
+    <div class="page-login-field bottom-30">
+        <i class="fa fa-lock"></i>
+        {{ form_widget(form.plainPassword.second, { 'attr': {'placeholder': 'Passwort wiederholen' } }) }}
+        {{ form_errors(form.plainPassword.second) }}
+        <em>(required)</em>
+    </div>
+    <div class="page-login-links bottom-10">
+        <a class="forgot center-text" href="page-signup.html"><i class="fa fa-user float-right"></i>Alread registered? Sign in here</a>
+        <div class="clear"></div>
+    </div>
+    <input type="submit" class="button bg-highlight button-full button-rounded button-s uppercase ultrabold" value="Registrieren">
+    {{ form_rest(form) }}
+</div>
 {{ form_end(form) }}

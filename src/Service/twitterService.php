@@ -24,7 +24,6 @@ class twitterService
     {
 //        $this->cache = $cache;
         $this->entityManager = $entityManager;
-        $this->twitterEntity = new \App\Entity\Twitter();
         $this->twitter = new Twitter($_SERVER['API_KEY'], $_SERVER['API_SECRET']);
         $this->authorize();
     }
@@ -41,7 +40,7 @@ class twitterService
 
 
         foreach ($tweets as $tweet) {
-            $tweeterEntity = $this->twitterEntity;
+            $tweeterEntity = new \App\Entity\Twitter();
             $tweeterEntity->setJson($tweet);
             $entityManager->persist($tweeterEntity);
         }

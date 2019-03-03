@@ -29,3 +29,7 @@
 .card-green {
     background-image: linear-gradient(to bottom, #5bbd12 0%, #5bbd12 100%);
 }
+
+.highlight-green .menu-dark .sidebar-logo a {
+    background-image: url(../nca/nca-community.png);
+}

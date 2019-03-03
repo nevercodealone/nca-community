@@ -24,9 +24,8 @@ class User extends BaseUser
     }
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @Assert\NotBlank(message="Vorname darf nicht leer sein.", groups={"Edit", "Profile"})
      * @Assert\Length(
      *     min=3,
      *     max=255,
@@ -38,9 +37,8 @@ class User extends BaseUser
     protected $firstName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @Assert\NotBlank(message="Nachname darf nicht leer sein.", groups={"Edit", "Profile"})
      * @Assert\Length(
      *     min=3,
      *     max=255,
@@ -52,7 +50,7 @@ class User extends BaseUser
     protected $lastName;
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=15, nullable=true)
      *
      * @Assert\Length(
      *     min=3,

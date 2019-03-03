@@ -58,10 +58,19 @@
                     <em>Never Code Alone</em>
                 </div>
                 <div class="sidebar-divider"></div>
+                <div class="menu-items menu-icons">
+                    <a href="{{ path('fos_user_registration_register') }}" class="menu-item-active">
+                        <i class="fa fa-star"></i>Registrieren
+                    </a>
+                    <a href="{{ path('fos_user_security_login') }}">
+                        <i class="fa fa-home"></i>Login
+                    </a>
+                </div>
+                <div class="sidebar-divider"></div>
                 <div class="sidebar-separator">Navigation</div>
 
                 <div class="menu-items menu-icons">
-                    <a href="{{ nevercodealone }}" class="menu-item-active" target="_blank" rel="noopener"><i class="fa fa-star"></i>NCA Webseite</a>
+                    <a href="{{ nevercodealone }}" target="_blank" rel="noopener"><i class="fa fa-star"></i>NCA Webseite</a>
                     <a href="/"><i class="fa fa-home"></i>Start</a>
                     <a href="{{ blog }}" target="_blank" rel="noopener"><i class="fas fa-cog"></i>Blog<span>Web Development</span></a>
                 </div>

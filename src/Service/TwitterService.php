@@ -3,11 +3,11 @@
 namespace App\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Cache\CacheItemPoolInterface;
 use Simplon\Twitter\Twitter;
 
 class TwitterService
 {
-    private $cache;
     private $twitterEntity;
     /**
      * @var EntityManagerInterface
@@ -15,32 +15,38 @@ class TwitterService
     private $entityManager;
 
     public $twitter;
+    private $cache;
     public $stopRequests = false;
     public $maxId = null;
     public $statuses;
     public $requestCount = 0;
 
-    public function __construct(EntityManagerInterface $entityManager, Twitter $twitter)
+    public function __construct(EntityManagerInterface $entityManager, Twitter $twitter, CacheItemPoolInterface $cache)
     {
         $this->entityManager = $entityManager;
         $this->twitter = $twitter;
+        $this->cache = $cache;
     }
 
     public function crawlerCommand() {
-        $entityManager = $this->entityManager;
+        $cacheItem = $this->cache->getItem('timeline');
+        $getTweets = $this->getActualTweetsFromUsers();
+        $cacheItem->set($getTweets);
+        $this->cache->save($cacheItem);
 
-        $tweets = $this->getActualTweetsFromUsers();
+        return count($getTweets);
+    }
 
+    public function getTweets()
+    {
+        $cacheItem = $this->cache->getItem('timeline2');
 
-        foreach ($tweets as $tweet) {
-            $tweeterEntity = new \App\Entity\Twitter();
-            $tweeterEntity->setJson($tweet);
-            $entityManager->persist($tweeterEntity);
+        if (!$cacheItem->isHit()) {
+            $cacheItem->set($this->getActualTweetsFromUsers());
+            $this->cache->save($cacheItem);
         }
 
-        $entityManager->flush();
-
-        return count($this->getActualTweetsFromUsers());
+        return $cacheItem->get();
     }
 
     protected function getActualTweetsFromUsers(): array

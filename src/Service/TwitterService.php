@@ -5,7 +5,7 @@ namespace App\Service;
 use Doctrine\ORM\EntityManagerInterface;
 use Simplon\Twitter\Twitter;
 
-class twitterService
+class TwitterService
 {
     private $cache;
     private $twitterEntity;
@@ -20,17 +20,10 @@ class twitterService
     public $statuses;
     public $requestCount = 0;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, Twitter $twitter)
     {
-//        $this->cache = $cache;
         $this->entityManager = $entityManager;
-        $this->twitter = new Twitter($_SERVER['API_KEY'], $_SERVER['API_SECRET']);
-        $this->authorize();
-    }
-
-    protected function authorize()
-    {
-        $this->twitter->setOauthTokens($_SERVER['ACCESS_TOKEN'], $_SERVER['ACCESS_SECRET']);
+        $this->twitter = $twitter;
     }
 
     public function crawlerCommand() {

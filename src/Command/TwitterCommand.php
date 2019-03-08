@@ -6,13 +6,13 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use App\Service\twitterService;
+use App\Service\TwitterService;
 
-class twitterCommand extends Command
+class TwitterCommand extends Command
 {
     private $twitterService;
 
-    public function __construct(twitterService $twitterService)
+    public function __construct(TwitterService $twitterService)
     {
         $this->twitterService = $twitterService;
         parent::__construct();
@@ -38,7 +38,7 @@ class twitterCommand extends Command
         $count = $this->twitterService->crawlerCommand();
 
         $output->writeln([
-            'User Creator',
+            'Tweet count',
             '============',
             $count,
         ]);

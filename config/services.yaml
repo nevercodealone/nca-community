@@ -5,7 +5,11 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-
+    google_api_key: '%env(GOOGLE_API_KEY)%'
+    api_key: '%env(API_KEY)%'
+    api_secret: '%env(API_SECRET)%'
+    access_token: '%env(ACCESS_TOKEN)%'
+    access_secret: '%env(ACCESS_SECRET)%'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -33,3 +37,13 @@ services:
         class: App\Form\RegistrationType
         tags:
         - { name: form.type, alias: app_user_edit }
+
+    Simplon\Twitter\Twitter:
+        arguments:
+            - '%api_key%'
+            - '%api_secret%'
+        calls:
+            - method: setOauthTokens
+              arguments:
+                  - '%access_token%'
+                  - '%access_secret%'

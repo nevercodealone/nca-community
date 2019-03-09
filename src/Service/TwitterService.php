@@ -4,7 +4,7 @@ namespace App\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
-use Simplon\Twitter\Twitter;
+use DG\Twitter\Twitter;
 
 class TwitterService
 {
@@ -39,7 +39,7 @@ class TwitterService
 
     public function getTweets()
     {
-        $cacheItem = $this->cache->getItem('timeline2');
+        $cacheItem = $this->cache->getItem('timeline');
 
         if (!$cacheItem->isHit()) {
             $cacheItem->set($this->getActualTweetsFromUsers());
@@ -68,13 +68,22 @@ class TwitterService
 
             $this->requestCount++;
 
-            $rawStatuses = $this->twitter->get('statuses/user_timeline', $getConfig);
+            $rawStatuses = $this->twitter->request('statuses/user_timeline', 'GET', $getConfig);
 
             foreach($rawStatuses as $rawStatus) {
-                $statuses[] = serialize($rawStatus);
+                $statuses[] = [
+                    'time' => '',
+                    'html' => $this->getEmbedCodeByUrl('https://twitter.com/' . $user . '/status/' . $rawStatus->id)
+                ];
             }
         }
 
         return $statuses;
+    }
+
+    public function getEmbedCodeByUrl($url)
+    {
+        $res = $this->twitter->request('statuses/oembed', 'GET', ['url' => $url, 'maxwidth' => '670']);
+        return $res->html;
     }
 }

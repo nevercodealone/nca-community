@@ -17,8 +17,8 @@
     "codeception/stub": {
         "version": "2.0.1"
     },
-    "danielstjules/stringy": {
-        "version": "1.9.0"
+    "dg/twitter-php": {
+        "version": "v4.0"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -241,15 +241,6 @@
             "version": "5.2",
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
         }
-    },
-    "simplon/helper": {
-        "version": "0.11.0"
-    },
-    "simplon/request": {
-        "version": "0.4.0"
-    },
-    "simplon/twitter": {
-        "version": "0.2.4"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.2"

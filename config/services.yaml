@@ -5,11 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    google_api_key: '%env(GOOGLE_API_KEY)%'
-    api_key: '%env(API_KEY)%'
-    api_secret: '%env(API_SECRET)%'
-    access_token: '%env(ACCESS_TOKEN)%'
-    access_secret: '%env(ACCESS_SECRET)%'
+    twitter_api_key: '%env(TWITTER_API_KEY)%'
+    twitter_api_secret: '%env(TWITTER_API_SECRET)%'
+    twitter_access_token: '%env(TWITTER_ACCESS_TOKEN)%'
+    twitter_access_secret: '%env(TWITTER_ACCESS_SECRET)%'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -38,12 +37,9 @@ services:
         tags:
         - { name: form.type, alias: app_user_edit }
 
-    Simplon\Twitter\Twitter:
+    DG\Twitter\Twitter:
         arguments:
-            - '%api_key%'
-            - '%api_secret%'
-        calls:
-            - method: setOauthTokens
-              arguments:
-                  - '%access_token%'
-                  - '%access_secret%'
+            - '%twitter_api_key%'
+            - '%twitter_api_secret%'
+            - '%twitter_access_token%'
+            - '%twitter_access_secret%'

@@ -1,5 +1,5 @@
 <?php
-namespace App\Tests\navigation;
+namespace App\Tests\Navigation;
 use App\Tests\AcceptanceTester;
 use App\Tests\Helper\Config;
 use App\Tests\Page\startpage;

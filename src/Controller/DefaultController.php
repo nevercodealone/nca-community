@@ -13,7 +13,11 @@ class DefaultController extends Controller
      */
     public function index(TwitterService $twitter)
     {
-        dump($twitter->getTweets());
-        return $this->render('default/index.html.twig');
+        return $this->render(
+            'default/index.html.twig',
+            [
+                'tweets' => $twitter->getTweets()
+            ]
+        );
     }
 }

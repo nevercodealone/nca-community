@@ -1,55 +1,22 @@
 <?php
 namespace App\Tests\Navigation;
 use App\Tests\AcceptanceTester;
-use App\Tests\Helper\Config;
-use App\Tests\Page\startpage;
+use App\Tests\Page\Startpage;
 
 class mainCest
 {
-    public function _before(AcceptanceTester $I)
+    public function _before(AcceptanceTester $I, Startpage $page)
     {
-        $I->amOnPage('/');
-        $I->waitForElement('h1');
+        $I->amOnPage($page::$URL);
+        $I->waitForElement($page::$navMainBurgerOpener);
     }
 
-    public function validateInternalAndExternalLinkTargets(AcceptanceTester $I, Config $helperConfig)
+    public function openCloseNav(AcceptanceTester $I, Startpage $page)
     {
-        return;
-        $specialLinks = [
-            'tel:+',
-            'mailto',
-            'sms',
-            'https://symfony.com/doc',
-            'http://symfony.com/support'
-        ];
-
-        $specialLinksSame = [
-            '#'
-        ];
-
-        $url = $helperConfig->getUrlFromConfigWebdriver('url');
-
-        $items = $I->grabMultiple('a', 'href');
-        $itemsTargets = $I->grabMultiple('a', 'target');
-        $itemsRel = $I->grabMultiple('a', 'rel');
-
-        foreach ($items as $key => $item) {
-            if($item === null) {
-                continue;
-            }
-
-            if(strpos($item, $url) === false) {
-                foreach ($specialLinks as $specialLinkKey => $specialLink) {
-                    if(strpos($item, $specialLink) !== false || strstr($specialLinksSame[$specialLinkKey], $specialLink)) {
-                        $I->assertSame('', $itemsTargets[$key], 'Item no blank: ' . $item . '|' . $key);
-                        continue 2;
-                    }
-                }
-                $I->assertSame('noopener', $itemsRel[$key], 'Item rel is noopener ' . $item . '|' . $key);
-                $I->assertSame('_blank', $itemsTargets[$key], 'Item blank: ' . $item . '|' . $key);
-            } else {
-                $I->assertSame('', $itemsTargets[$key], 'Item no blank: ' . $item . '|' . $key);
-            }
-        }
+        $I->dontSeeElement($page::$navMain);
+        $I->click($page::$navMainBurgerOpener);
+        $I->waitForElementVisible($page::$navMain);
+        $I->click($page::$navMainBurgerHider);
+        $I->waitForElementNotVisible($page::$navMain);
     }
 }

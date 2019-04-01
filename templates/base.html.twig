@@ -59,12 +59,19 @@
                 </div>
                 <div class="sidebar-divider"></div>
                 <div class="menu-items menu-icons">
-                    <a href="{{ path('fos_user_registration_register') }}" class="menu-item-active">
-                        <i class="fa fa-star"></i>Registrieren
-                    </a>
-                    <a href="{{ path('fos_user_security_login') }}">
-                        <i class="fa fa-home"></i>Login
-                    </a>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} ({{ app.user.username }})
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_registration_register') }}" class="menu-item-active">
+                            <i class="fa fa-star"></i>Registrieren
+                        </a>
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <i class="fa fa-home"></i>Login
+                            {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="sidebar-divider"></div>
                 <div class="sidebar-separator">Navigation</div>
@@ -89,6 +96,8 @@
         <div class="page-content header-clear">
                 {% block content %}
                 {% endblock %}
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
 
             <div class="call-to-action">
                 <a href="tel:+{{ phone }}"><i class="fa fa-phone"></i><em>Telefon</em></a>

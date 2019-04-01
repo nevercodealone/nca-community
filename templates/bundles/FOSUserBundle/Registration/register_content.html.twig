@@ -5,31 +5,37 @@
     <h3 class="uppercase ultrabold top-30 bottom-0">Anmelden</h3>
     <p class="smaller-text bottom-30">Werde Teil der #NCACommunity</p>
     <div class="page-login-field top-15">
-        <i class="fa fa-user"></i>
+        <i class="fas fa-user"></i>
         {{ form_widget(form.username, { 'attr': {'placeholder': 'Benutzername' } }) }}
         {{ form_errors(form.username) }}
         <em>(required)</em>
     </div>
     <div class="page-login-field">
-        <i class="fa fa-at"></i>
+        <i class="fas fa-at"></i>
         {{ form_widget(form.email, { 'attr': {'placeholder': 'Deine E-Mail' } }) }}
         {{ form_errors(form.email) }}
         <em>(required)</em>
     </div>
     <div class="page-login-field">
-        <i class="fa fa-lock"></i>
+        <i class="fab fa-twitter"></i>
+        {{ form_widget(form.twitter, { 'attr': {'placeholder': 'Dein Twitter Handel' } }) }}
+        {{ form_errors(form.twitter) }}
+        <em>(required)</em>
+    </div>
+    <div class="page-login-field">
+        <i class="fas fa-lock"></i>
         {{ form_widget(form.plainPassword.first, { 'attr': {'placeholder': 'Passwort'} }) }}
         {{ form_errors(form.plainPassword.first) }}
         <em>(required)</em>
     </div>
     <div class="page-login-field bottom-30">
-        <i class="fa fa-lock"></i>
+        <i class="fas fa-lock"></i>
         {{ form_widget(form.plainPassword.second, { 'attr': {'placeholder': 'Passwort wiederholen' } }) }}
         {{ form_errors(form.plainPassword.second) }}
         <em>(required)</em>
     </div>
     <div class="page-login-links bottom-10">
-        <a class="forgot center-text" href="page-signup.html"><i class="fa fa-user float-right"></i>Alread registered? Sign in here</a>
+        <a class="forgot center-text" href="page-signup.html"><i class="fas fa-user float-right"></i>Alread registered? Sign in here</a>
         <div class="clear"></div>
     </div>
     <input type="submit" class="button bg-highlight button-full button-rounded button-s uppercase ultrabold" value="Registrieren">

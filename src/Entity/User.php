@@ -13,7 +13,7 @@ class User extends BaseUser
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     protected $id;
@@ -65,7 +65,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName():     string
     {
         return $this->firstName;
     }
@@ -81,7 +81,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->lastName;
     }
@@ -97,7 +97,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getTwitter()
+    public function getTwitter(): ?string
     {
         return $this->twitter;
     }
@@ -109,6 +109,4 @@ class User extends BaseUser
     {
         $this->twitter = $twitter;
     }
-
-
 }

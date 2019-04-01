@@ -1,22 +1,32 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
 
 {% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+   <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-<h2>login_content.html.twig</h2>
+
 <form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+<div class="page-login bottom-20">
+   <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+   <div class="page-login-field top-15">
+        <i class="fas fa-user"></i>
+         <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" />
+        <em>(required)</em>
+   </div>
+   <div class="page-login-field top-15">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" />
+      <em>(required)</em>
+    </div>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+   <div class="checkbox">
+      <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+      <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+   </div>
+   <input class="button bg-highlight button-full button-rounded button-s uppercase ultrabold" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</div>
 </form>
+
+{% endblock fos_user_content %}

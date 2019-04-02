@@ -7,26 +7,28 @@
 {% endif %}
 
 <form action="{{ path("fos_user_security_check") }}" method="post">
-<div class="page-login bottom-20">
-   <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+   <div class="page-login bottom-20">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-   <div class="page-login-field top-15">
-        <i class="fas fa-user"></i>
+      <div class="page-login-field top-15">
+         <i class="fas fa-user"></i>
          <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required="required" />
-        <em>(required)</em>
-   </div>
-   <div class="page-login-field top-15">
-      <i class="fas fa-lock"></i>
-      <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" />
-      <em>(required)</em>
-    </div>
+         <em>(required)</em>
+      </div>
+      <div class="page-login-field top-15">
+         <i class="fas fa-lock"></i>
+         <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" />
+         <em>(required)</em>
+      </div>
 
-   <div class="checkbox">
-      <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-      <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+      <div class="page-login-links bottom-10">
+         <a class="forgot float-left" href="{{ path('fos_user_resetting_request') }}"><i class="fa fa-eye"></i>Forgot Password</a>
+         <a class="create float-right" href="{{ path('fos_user_registration_register') }}"><i class="fa fa-user float-right"></i>Account erstellen</a>
+         <div class="clear"></div>
+      </div>
+
+      <input class="button bg-highlight button-full button-rounded button-s uppercase ultrabold" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
    </div>
-   <input class="button bg-highlight button-full button-rounded button-s uppercase ultrabold" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</div>
 </form>
 
 {% endblock fos_user_content %}

@@ -65,7 +65,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFirstName():     string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -81,7 +81,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }

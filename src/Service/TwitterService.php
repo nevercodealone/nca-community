@@ -42,9 +42,11 @@ class TwitterService
         $cacheItem = $this->cache->getItem('timeline');
 
         if (!$cacheItem->isHit()) {
-            $cacheItem->set($this->getActualTweetsFromUsers());
-            $this->cache->save($cacheItem);
+            return false;    
         }
+
+        $cacheItem->set($this->getActualTweetsFromUsers());
+        $this->cache->save($cacheItem);
 
         return $cacheItem->get();
     }
@@ -59,7 +61,7 @@ class TwitterService
                 'user_id' => $user,
                 'trim_user' => true,
                 'exclude_replies' => true,
-                'count' => 200
+                'count' => 5
             );
 
             if(!empty($this->maxId)) {

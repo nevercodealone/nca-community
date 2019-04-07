@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-NCA Community
+    NCA Community
 {% endblock %}
 
 {% block content %}
     <div class="content">
-        {% for tweet in tweets %}
-            <div class="news-list-item">
-                {{ tweet.html|raw }}
-            </div>
-        {% endfor %}
+        {% if tweets == false %}
+            <h2>Bitte komme später wieder</h2>
+        {% else %}
+            {% for tweet in tweets %}
+                <div class="news-list-item">
+                    {{ tweet.html|raw }}
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}

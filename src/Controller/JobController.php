@@ -20,12 +20,10 @@ class JobController extends AbstractController
      */
     public function createAction(Request $request): Response
     {
-        $form = $this->createForm(JobType::class, new Job($this->getUser()))->handleRequest($request);
+        $form = $this->createForm(JobType::class, $job = new Job($this->getUser()))->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            /** @var Job $job */
-            $job = $form->getData();
             $entityManager->persist($job);
             $entityManager->flush();
 
@@ -34,6 +32,38 @@ class JobController extends AbstractController
             return $this->redirectToRoute('job_detail', ['id' => $job->getId()]);
         }
 
-        return $this->render('jobs_form.html.twig', ['form' => $form->createView()]);
+        return $this->render(
+            'jobs_form.html.twig',
+            [
+                'form' => $form->createView(),
+                'job' => $job
+            ]
+        );
+    }
+
+    /**
+     * @Route("/jobs/{id}/edit", name="jobs_edit", methods={"GET", "POST"}, requirements={"id":"\d+"})
+     * @IsGranted("IS_EDIT_JOB", subject="job")
+     */
+    public function editAction(Request $request, Job $job): Response
+    {
+        $form = $this->createForm(JobType::class, $job)->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            $this->addFlash('green', 'Job geändert');
+
+            return $this->redirectToRoute('job_detail', ['id' => $job->getId()]);
+        }
+
+        return $this->render(
+            'jobs_form.html.twig',
+            [
+                'form' => $form->createView(),
+                'job' => $job
+            ]
+        );
     }
 }

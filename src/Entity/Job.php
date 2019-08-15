@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Validator\Constraint\BadWords;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\JobRepository")
@@ -18,11 +20,15 @@ class Job
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="5", max="10")
+     * @Assert\NotBlank()
+     * @BadWords(words={"Senior"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $description;
 

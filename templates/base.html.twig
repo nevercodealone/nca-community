@@ -33,8 +33,6 @@
         <p>#NCACommunity - Initiative zur <a href="https://entwickler.de/online/development/deutschland-webentwicklungs-entwicklungsland-252913.html" target="_blank" rel="noopener">>Steigerung der Software-Qualität in Deutschland.</a</p>
         <em>Never Code Alone</em>
     </div>
-
-
     <div id="page-transitions" class="page-build highlight-green">
         {% block header %}
         <div class="header header-light header-logo-center">
@@ -95,6 +93,15 @@
         </div>
 
         <div class="page-content header-clear">
+                {% for type,messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="notification-small notification-has-icon notification-{{ type }}">
+                            <div class="notification-icon"><i class="fa fa-check notification-icon"></i></div>
+                            <p>{{ message }}</p>
+                            <a href="#" class="close-notification"><i class="fa fa-times"></i></a>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
                 {% block content %}
                 {% endblock %}
                 {% block fos_user_content %}

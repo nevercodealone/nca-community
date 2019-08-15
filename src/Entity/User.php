@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -63,6 +65,17 @@ class User extends BaseUser
     protected $twitter;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="owner")
+     */
+    private $ownedJobs;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->ownedJobs = new ArrayCollection();
+    }
+
+    /**
      * @return string
      */
     public function getFirstName(): ?string
@@ -109,4 +122,13 @@ class User extends BaseUser
     {
         $this->twitter = $twitter;
     }
+
+    /**
+     * @return Job[]
+     */
+    public function getOwnedJobs():array
+    {
+        return $this->ownedJobs->toArray();
+    }
+
 }

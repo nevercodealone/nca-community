@@ -58,7 +58,7 @@
                 <div class="sidebar-divider"></div>
                 <div class="menu-items menu-icons">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('fos_user_security_logout') }}">
+                        <a href="{{ path('fos_user_security_logout') }}" class="menu-item-active">
                             <i class="fa fa-power-off"></i>
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} ({{ app.user.username }})
                         </a>
@@ -75,7 +75,7 @@
                         <a href="{{ path('fos_user_registration_register') }}" class="menu-item-active">
                             <i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}
                         </a>
-                        <a href="{{ path('fos_user_security_login') }}">
+                        <a href="{{ path('fos_user_security_login') }}" class="menu-item-active">
                             <i class="fa fa-sign-in-alt"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
                         </a>
                     {% endif %}
@@ -84,10 +84,10 @@
                 <div class="sidebar-divider"></div>
                 <div class="sidebar-separator">NCA Community</div>
                 <div class="menu-items menu-icons">
-                    <a href="/">
+                    <a href="/" class="menu-item-active">
                         <i class="fa fa-home"></i> Start
                     </a>
-                    <a href="{{ path('jobs_overview') }}">
+                    <a href="{{ path('jobs_overview') }}" class="menu-item-active">
                         <i class="fa fa-people-carry"></i> Jobs <span>Beta</span>
                     </a>
                 </div>

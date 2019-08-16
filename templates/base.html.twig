@@ -59,27 +59,43 @@
                 <div class="menu-items menu-icons">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <a href="{{ path('fos_user_security_logout') }}">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-power-off"></i>
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} ({{ app.user.username }})
                         </a>
+                        <a href="#" data-submenu="submenu-profile" class="submenu-has-numbers"><i class="fas fa-shopping-bag"></i>Meine Freatures</a>
+                        <div class="submenu" id="submenu-profile">
+                            <a href="/profile/edit">
+                                <i class="fa fa-address-card"></i> Profil
+                            </a>
+                            <a href="{{ path('jobs_create') }}">
+                                <i class="fa fa-people-carry"></i> Meine Jobs
+                            </a>
+                        </div>
                     {% else %}
                         <a href="{{ path('fos_user_registration_register') }}" class="menu-item-active">
-                            <i class="fa fa-star"></i>Registrieren
+                            <i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}
                         </a>
                         <a href="{{ path('fos_user_security_login') }}">
-                            <i class="fa fa-home"></i>
-                            {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                            <i class="fa fa-sign-in-alt"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
                         </a>
                     {% endif %}
                 </div>
-                <div class="sidebar-divider"></div>
-                <div class="sidebar-separator">Navigation</div>
 
+                <div class="sidebar-divider"></div>
+                <div class="sidebar-separator">NCA Community</div>
+                <div class="menu-items menu-icons">
+                    <a href="/">
+                        <i class="fa fa-home"></i> Start
+                    </a>
+                </div>
+
+                <div class="sidebar-divider"></div>
+                <div class="sidebar-separator">Never Code Alone</div>
                 <div class="menu-items menu-icons">
                     <a href="{{ nevercodealone }}" target="_blank" rel="noopener"><i class="fa fa-star"></i>NCA Webseite</a>
-                    <a href="/"><i class="fa fa-home"></i>Start</a>
                     <a href="{{ blog }}" target="_blank" rel="noopener"><i class="fas fa-cog"></i>Blog<span>Web Development</span></a>
                 </div>
+
                 <div class="sidebar-divider"></div>
                 <div class="sidebar-separator">Kontakt</div>
                 <div class="menu-items menu-icons">

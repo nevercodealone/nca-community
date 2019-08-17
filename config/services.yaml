@@ -10,6 +10,7 @@ parameters:
     twitter_access_token: '%env(TWITTER_ACCESS_TOKEN)%'
     twitter_access_secret: '%env(TWITTER_ACCESS_SECRET)%'
 services:
+    Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider: ~
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

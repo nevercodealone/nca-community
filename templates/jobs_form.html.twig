@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    {% if job.id %}
-        <h1>Edit job</h1>
-    {% else %}
-        <h1>Add a new job</h1>
-    {% endif %}
-
+<div class="content">
+    <h4 class="uppercase bolder">
+        {% if job.id %}
+            Job bearbeiten
+        {% else %}
+            Job anlegen
+        {% endif %}
+    </h4>
+    <p class="bottom-15">
+        Stellenausschreibungen sollen ehrlich sein und konkrete Projekte beschreiben.
+    </p>
     {{ form(form) }}
+</div>
 {% endblock %}
 

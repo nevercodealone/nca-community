@@ -19,14 +19,24 @@ class JobType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'constraints' => [
-                    new BadWords(['words' => ['Senior']])
-                ]
+                'label' => 'Titel',
+                'attr' => [
+                    'placeholder'   => 'Web Developer'
+                ],
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Beschreibung'
+                'label' => 'Beschreibung',
+                'attr' => [
+                    'placeholder' => 'Aussagekräftige Beschreibung zur Tätigkeit und den Technologien',
+                    'style' => 'width:100%;',
+                    'rows' => '15'
+                ]
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'attr' => [
+                    'class' => 'button button-green button-full button-rounded button-sm uppercase ultrabold'
+                ]
+            ])
         ;
     }
 

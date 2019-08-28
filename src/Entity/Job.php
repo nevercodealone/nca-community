@@ -20,7 +20,7 @@ class Job
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="5", max="10")
+     * @Assert\Length(min="5")
      * @Assert\NotBlank()
      * @BadWords(words={"Senior"})
      */
@@ -31,6 +31,20 @@ class Job
      * @Assert\NotBlank()
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     * @Assert\Type(type="integer")
+     * @Assert\Length(min="5", max="5")
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     */
+    private $town;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ownedJobs")
@@ -68,6 +82,36 @@ class Job
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?string
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode($zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTown(): ?string
+    {
+        return $this->town;
+    }
+
+    /**
+     * @param mixed $town
+     */
+    public function setTown($town): self
+    {
+        $this->town = $town;
 
         return $this;
     }

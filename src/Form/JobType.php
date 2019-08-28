@@ -7,6 +7,7 @@ namespace App\Form;
 use App\Entity\Job;
 use App\Validator\Constraint\BadWords;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -30,6 +31,17 @@ class JobType extends AbstractType
                     'placeholder' => 'Aussagekräftige Beschreibung zur Tätigkeit und den Technologien',
                     'style' => 'width:100%;',
                     'rows' => '15'
+                ]
+            ])
+            ->add('zipcode', IntegerType::class, [
+                'label' => 'Postleitzahl',
+                'attr' => [
+                    'placeholder' => '47051'
+                ]
+            ])
+            ->add('town', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Duisburg'
                 ]
             ])
             ->add('submit', SubmitType::class, [

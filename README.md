@@ -43,3 +43,9 @@
   ```bash
   bin/console app:command-twitter
   ```
+* Login to phpmyadmin
+
+  ```bash
+  http://127.0.0.1:8888
+  ncacommunity:ncacommunity
+  ```

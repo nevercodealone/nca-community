@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+
+  php:
+    build: './docker/php'
+    networks:
+      - backend
+    volumes:
+      - './:/var/www/html'
+
+  apache:
+    build: './docker/apache'
+    networks:
+      - backend
+      - frontend
+    ports:
+      - '80:80'
+    volumes:
+      - './:/var/www/html'
+    depends_on:
+      - php
+      - mysql
+
+  mysql:
+    build: './docker/mysql'
+    ports:
+      - '3336:3336'
+    networks:
+      - 'backend'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'ncacommunity'
+      MYSQL_PASSWORD: 'ncacommunity'
+      MYSQL_DATABASE: 'ncacommunity'
+
+networks:
+  backend:
+  frontend:

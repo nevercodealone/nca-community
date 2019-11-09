@@ -8,6 +8,8 @@ services:
       - backend
     volumes:
       - './:/var/www/html'
+    environment:
+      XDEBUG_CONFIG: remote_host=skynet
 
   apache:
     build: './docker/apache'

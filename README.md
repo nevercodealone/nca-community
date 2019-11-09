@@ -49,3 +49,11 @@
   http://127.0.0.1:8888
   ncacommunity:ncacommunity
   ```
+* Login to phpmyadmin
+
+  ```bash
+  hostname
+  ```
+  For my system it is skynet ;) add this to docker-compose.yml and do an new "up"
+  
+  https://blog.jetbrains.com/phpstorm/2018/08/quickstart-with-docker-in-phpstorm/
